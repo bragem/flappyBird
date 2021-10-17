@@ -56,13 +56,12 @@ pipe[0] = {
 }
 
 //draws the back- and foreground onto the canvas on load
-window.onload = drawImages;
-function drawImages(){
+window.onload = function(){
     c.drawImage(bg,0,0);
     c.drawImage(fg,0,canvas.height-fg.height);
 }
 
-let storedName = window.localStorage.getItem("name");
+let storedName = window.localStorage.getItem("storedName");
 let lastScore = window.localStorage.getItem("lastScore");
 let highScore = window.localStorage.getItem("highScore")
 
@@ -72,8 +71,7 @@ highScoreDiv.innerHTML += `<br> ${storedName}: ${highScore}<br>`;
 
 //When the spacebar is pressed after the first time, this function runs, which makes the
 //bird move upwards, or fly if you want
-window.onkeydown = fly;
-function fly(e) {
+window.onkeydown = function(e){
     if(e.key === " ") {
         e.preventDefault();
         speed=-3;
