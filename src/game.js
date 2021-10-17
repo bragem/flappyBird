@@ -43,7 +43,7 @@ let bY=150;
 
 //An easily changeable gap
 let gapConst = 90;
-let gap = pipeNorth.height-gapConst;
+let gap = pipeNorth.height+gapConst;
 
 //g is the gravity constant and speed is a variable which constantly increases with the given gravity
 let g = 0.1;
@@ -84,7 +84,6 @@ window.onkeydown = function(e){
 
 function draw() {
     c.drawImage(bg,0,0);
-    c.drawImage(fg,0,canvas.height-fg.height);
 
     //updates the position of the bird
     c.drawImage(bird,bX, bY);
@@ -131,6 +130,10 @@ function draw() {
         }
 
     }
+
+    //Animates the foreground so that the pipes appear to be behind it
+    c.drawImage(fg,0,canvas.height-fg.height);
+
 
     //Writes the score in real time to the canvas
     c.fillStyle = "#000";
