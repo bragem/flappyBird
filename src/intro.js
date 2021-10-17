@@ -1,5 +1,6 @@
 let form = document.forms["nameForm"];
 
+
 //if a name is already stored on startup, the window is automatically changed to the game
 if (window.localStorage.getItem("storedName") != null) window.location.replace("game.html");
 
