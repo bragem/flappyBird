@@ -14,8 +14,8 @@ function spacebarPressed(e){
     }
 }
 
-let highScoreDiv = document.getElementById("highscore");
-let lastScoreDiv = document.getElementById("lastscore");
+let highScoreDiv = document.getElementById("highScore");
+let lastScoreDiv = document.getElementById("lastScore");
 
 let bird = new Image();
 let bg = new Image();
@@ -56,10 +56,11 @@ pipe[0] = {
 }
 
 //draws the back- and foreground onto the canvas on load
-window.onload( _ =>{
+window.onload = drawImages;
+function drawImages(){
     c.drawImage(bg,0,0);
     c.drawImage(fg,0,canvas.height-fg.height);
-});
+}
 
 let storedName = window.localStorage.getItem("name");
 let lastScore = window.localStorage.getItem("lastScore");
@@ -71,20 +72,19 @@ highScoreDiv.innerHTML += `<br> ${storedName}: ${highScore}<br>`;
 
 //When the spacebar is pressed after the first time, this function runs, which makes the
 //bird move upwards, or fly if you want
-window.onkeydown(e => {
+window.onkeydown = fly;
+function fly(e) {
     if(e.key === " ") {
         e.preventDefault();
         speed=-3;
         birdSound.play();
     }
-});
+}
 
 
 
 
 function draw() {
-    //Not sure why its needed inside here as well as outside but
-    //its not frustrating me enough to fix it
     c.drawImage(bg,0,0);
     c.drawImage(fg,0,canvas.height-fg.height);
 
@@ -95,7 +95,7 @@ function draw() {
 
     //This is where the pipes are drawn and moved
     for (let i=0;i<pipe.length;i++){
-        c.drawImage(pipeNorth, pipe[i].x,pipe[i].y);
+        c.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
         c.drawImage(pipeSouth, pipe[i].x,pipe[i].y+gap);
         pipe[i].x--;
 
@@ -135,7 +135,7 @@ function draw() {
     }
 
     //Writes the score in real time to the canvas
-    c.fillStyle("#000");
+    c.fillStyle = "#000";
     c.font = "20px Helvetica";
     c.fillText(`Score: ${score}`, 15, canvas.height-20);
     requestAnimationFrame(draw);

@@ -1,7 +1,7 @@
 let form = document.forms["nameForm"];
 
 //if a name is already stored on startup, the window is automatically changed to the game
-if (window.localStorage.getItem("name") != null) window.location.replace("game.html");
+if (window.localStorage.getItem("storedName") != null) window.location.replace("game.html");
 
 
 
@@ -12,7 +12,9 @@ form.onsubmit = function (e){
 
     //saves the name and changes window
     let name = form["name"].value;
-    window.localStorage.setItem("name",name);
+    console.log(name);
+    window.localStorage.setItem("storedName",name);
+    window.localStorage.setItem("lastScore",JSON.stringify(0));
 
     window.location.replace("game.html");
 }
