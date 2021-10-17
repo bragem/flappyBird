@@ -1,7 +1,7 @@
 let form = document.forms["nameForm"];
 
 //if a name is already stored on startup, the window is automatically changed to the game
-if (window.localStorage.getItem("name") != null) window.location.replace("/src/game.html");
+if (window.localStorage.getItem("name") != null) window.location.replace("game.html");
 
 
 
@@ -14,5 +14,5 @@ form.onsubmit = function (e){
     let name = form["name"].value;
     window.localStorage.setItem("name",name);
 
-    window.location.replace("/src/game.html");
+    window.location.replace("game.html");
 }
