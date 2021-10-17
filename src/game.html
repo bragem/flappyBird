@@ -6,14 +6,18 @@
 </head>
 <body>
 
-    <div>
+    <div id="container">
         <img id="logo" src="/images/logo.png" alt="Pulsating Flappy Bird logo">
-        <p>Press the spacebar to start and to play the game</p>
+        <div id="info">Press the spacebar to start and to play the game</div>
 
-        <div>
+        <div id="cDiv">
             <canvas height="512px" width="288px"></canvas>
-            <div id="highscore">High Score: </div>
-            <div id="lastscore">Last Score: </div>
+
+            <div id="scoreboard">
+                <div id="highScore">High Score: </div>
+                <div id="lastScore">Last Score: </div>
+            </div>
+
         </div>
     </div>
 
